@@ -39,13 +39,13 @@
 
 
 import React from 'react';
-import Register from './components/register';
+import { RouterProvider } from 'react-router-dom';
+import routerConfig from './router'
+// import Register from './pages/Register';
 
 const App: React.FC = () => {
     return (
-        <div>
-            <Register />
-        </div>
+      <RouterProvider router={routerConfig}></RouterProvider>
     );
 };
 
