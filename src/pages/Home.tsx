@@ -10,14 +10,18 @@ import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const nav=useNavigate()
-    function clickHandler(){
+    function clickStatus(){
         nav('/status')
+    }
+    function clickSelect(){
+        nav('/signup')
     }
 
 
     return (
         <div>
-            <button onClick={clickHandler}>状态查询</button>
+            <button onClick={clickStatus}>状态查询</button>
+            <button onClick={clickSelect}>选择面试时间</button>
         </div>
     );
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout'; // 主布局组件
-import Login from '../pages/Register';   // 登录页面组件
+import Login from '../pages/Login';   // 登录页面组件
 import Register from '../pages/Register'; // 注册页面组件
 import Home from '../pages/Home'
 import Status from '../pages/Status'; // 状态页面组件
