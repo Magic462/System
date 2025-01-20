@@ -1,18 +1,7 @@
-// import React from 'react';
-// // import './Register.scss'; // 引入样式文件
-
-// const Signup: React.FC = () => {
-//     return (
-//         <div>Signup</div>
-//     );
-// };
-
-// export default Signup;
-
-// src/TimePicker.tsx
 import React, { useState }  from 'react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
+import axios from 'axios';
 import './Signup.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -32,10 +21,35 @@ const Signup: React.FC = () => {
     const handleTimeChange = (selectedOption: any) => {
         setSelectedTime(selectedOption);
     };
+    const token = localStorage.getItem('token');
+    console.log(token);
+    
+    const handleSubmit = async(e: React.FormEvent) => {
+        e.preventDefault();
 
-    const handleSubmit = () => {
+        if (!token) {
+            alert('未找到身份验证 token，请登录。');
+            return;
+        }
         if (startDate && selectedTime) {
-            console.log(`面试时间: ${startDate.toLocaleDateString()} ${selectedTime.label}`);
+            // 格式化日期和时间
+            const formattedMonth = (startDate.getMonth() + 1).toString().padStart(2, '0');
+        const formattedDate = startDate.getDate().toString().padStart(2, '0');
+        const interviewTime = `${formattedMonth}-${formattedDate} ${selectedTime.label}`;
+        console.log(`面试时间: ${interviewTime}`);
+        
+            try {
+                const response = await axios.put('http://101.200.122.3:8081/interview', {
+                    interviewTime: interviewTime, // 发送格式化后的时间
+                },{
+                    headers: {
+                        Authorization: `Bearer ${token}`, // 将 token 添加到请求头
+                    }
+                });
+                console.log(response.data);
+            } catch (error) {
+                console.error('错误:', error);
+            }
         } else {
             alert('请确保选择日期和时间');
         }

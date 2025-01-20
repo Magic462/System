@@ -112,8 +112,6 @@ const Register: React.FC = () => {
             console.log(response.data);
             if (response.data.code === 1) {
                 alert('注册成功！');
-                const token = response.data.data.token;
-                localStorage.setItem('token', token);
                 nav('/login');
             } else {
                 alert(`注册失败：${response.data.message}`);

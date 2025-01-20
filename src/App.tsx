@@ -41,6 +41,7 @@
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
 import routerConfig from './router'
+import './App.css'
 // import Register from './pages/Register';
 
 const App: React.FC = () => {

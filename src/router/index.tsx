@@ -7,6 +7,7 @@ import Register from '../pages/Register'; // 注册页面组件
 import Home from '../pages/Home'
 import Status from '../pages/Status'; // 状态页面组件
 import Signup from '../pages/Signup'; // 状态页面组件
+import Change from '../pages/Change'; // 状态页面组件
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:'/signup',
                 element:<Signup />,
+            },
+            {
+                path:'/change',
+                element:<Change />,
             }
             // {
             //     path:'*',
