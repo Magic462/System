@@ -336,7 +336,6 @@ const Login = () => {
               <input type="email" className="input-field" placeholder="Email" autoComplete="off" value={email}
                                 onChange={(e) => {
                                     setEmail(e.target.value);
-                                    // validateInputs(); // 实时验证
                                 }}/>
             </div>
             <div className="field">
